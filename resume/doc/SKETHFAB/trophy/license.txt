@@ -1,0 +1,11 @@
+Model Information:
+* title:	Trophy
+* source:	https://sketchfab.com/3d-models/trophy-680d8496c3f54f79956ef0fdf25c7637
+* author:	lzy.nrd (https://sketchfab.com/lzy.nrd)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Trophy" (https://sketchfab.com/3d-models/trophy-680d8496c3f54f79956ef0fdf25c7637) by lzy.nrd (https://sketchfab.com/lzy.nrd) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
