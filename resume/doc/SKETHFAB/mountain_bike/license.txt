@@ -1,0 +1,11 @@
+Model Information:
+* title:	Mountain bike
+* source:	https://sketchfab.com/3d-models/mountain-bike-1d9270f82a34460e928709bbf7709d56
+* author:	Niilo Poutanen (https://sketchfab.com/niilo.poutanen)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Mountain bike" (https://sketchfab.com/3d-models/mountain-bike-1d9270f82a34460e928709bbf7709d56) by Niilo Poutanen (https://sketchfab.com/niilo.poutanen) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
