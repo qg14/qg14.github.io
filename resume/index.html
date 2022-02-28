@@ -281,7 +281,7 @@
                                 depth: 10,
                                 color: 0xdddddd,
                                 opacity: 1,
-                                map: new THREE.ImageUtils.loadTexture('./doc/img/mypro.png')
+                                map: new THREE.ImageUtils.loadTexture('./doc/img/mypro.PNG')
                                 // ,map: that.threeD.texture['izzie_wall']
                             }));
                             wall_left.rotation.y = Math.PI / 2; wall_left.position.x = -base_width * 0.5; wall_left.position.y = base_width * 0.758 * 0.618 / 2; wall_left.receiveShadow = true;
@@ -292,7 +292,7 @@
                                 depth: 10,
                                 opacity: 0.9,
                                 color: 0xcccccc,
-                                map: new THREE.ImageUtils.loadTexture('./doc/img/mycom.png')
+                                map: new THREE.ImageUtils.loadTexture('./doc/img/mycom.PNG')
                             }));
                             wall_right.position.y = base_width * 0.758 * 0.618 / 2; wall_right.position.z = 0 - base_width * 0.758 / 2; wall_right.receiveShadow = true;
                             that.objs.wall_right = wall_right;
@@ -497,7 +497,7 @@
                                 that.goto_fullview('display',50);
                             }, 1200);
                             setTimeout(function () {
-                                that.objs.desc.children[0].material.map = new THREE.ImageUtils.loadTexture('./doc/img/mydesc.png');
+                                that.objs.desc.children[0].material.map = new THREE.ImageUtils.loadTexture('./doc/img/MYDESC.PNG');
                                 that.material.click.opacity = 1;
                             }, 2400)
                             that.light(scene);
