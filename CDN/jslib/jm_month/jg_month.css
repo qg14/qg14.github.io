@@ -1,0 +1,8 @@
+﻿ .jm_box{ position:absolute; border:1px solid #bbb;  width:180px; background:#fff; font-size:14px; height:auto; z-index:9999; }
+    .jm_box select{ width:80%; height:20px;  }
+    .jm_but{ height:20px; border:1px solid #bbb; margin:4px; top:1px; position:relative; cursor:pointer; }
+    .jm_year{ width:96px;}
+    .jm_reduce,.jm_add{ height:24px; width:26px;  background-color:#bbb; color:#fff;  font-size:1.2em; }
+    .jm_ms{ margin:3px;  height:28px; width:38px; color:#666; border:1px solid #bbb; background-color:#fff; cursor:pointer;}
+    .jm_ms:hover{ background-color:#bbb;}
+    .jm_lnk{ float:right; margin:3px; font-family:Arial; font-size:0.9em;}
