@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/z.js"></script>
+    <script src="js/svg.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/_.js"></script>
+    <style type="text/css">
+        * { padding:0px;
+            margin:0px;
+            overflow:hidden;
+        }
+        #container {
+            width: 100vw;
+            height: 100vh;
+            border: 1px solid #dedede;
+            position: relative;
+         
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            -ms-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+           
+            /* Other transform properties here */
+        
+        }
+        svg {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        .square {
+            position: absolute;
+            border: 1px dashed blue;
+            width: 0px;
+            height: 0px;
+            left: 0px;
+            top: 0px;
+            overflow: hidden;
+        }
+        .zoom { position:absolute;
+                top:2%;
+                right:10%; cursor:pointer;
+                z-index:10;
+                border:1px solid #ddd;
+                border-radius:2px;
+                padding:4px;
+        }
+        .legend {
+        cursor:pointer; 
+        }
+        .lowlight {
+opacity:0.1;
+        }
+        [flag=lowlegend]{
+            opacity: 0.4;
+        }
+        .tag{
+          
+            min-width: 50px;
+            min-height: 30px;
+            border: 1px solid #555;
+            position:absolute;
+            left: 1300px;
+            top: 30px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            padding: 5px 3px;
+            border-radius: 6px;
+            font-size: .8em;overflow:visible;
+        }
+
+            .tag:before, .tag:after {
+                content: "";
+                display: block;
+                border-width: 1px;
+                position: absolute;
+                bottom: -20px;
+                left: 20px;
+                border-style: solid dashed dashed;
+                border-color: #555 transparent transparent;
+                font-size: 0;
+                line-height: 0;
+                border-width: 10px;
+            }
+
+            .tag:after {
+                bottom: -19px;
+                border-color: #555 transparent transparent;
+            }
+        .Dark {
+        
+       
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div id="container"></div>
+    <script src="js/ScatterPlot.js"></script>
+    <script>
+        function rnd(x = 10, y = 20, split = 0) {
+            return (Math.random() * (y - x) + x) | split;
+
+        }
+        console.time(1);
+        //let scatter = Array(5 * 1).fill({}).map((n, i) => {
+        //    return {
+        //        id: 'scatter' + i,
+        //        y: rnd(140 + 2, 190 - 2, 0.1),
+        //        x: rnd(40 + 2, 90 - 2, 0.1),
+        //        color: ['#409EFF', '#67C23A', '#E6A23C', '#F56C6C'][rnd(0, 4)],
+        //        shape: ['circle', 'triangle', 'square'][rnd(0, 3)],
+        //        size: rnd(30, 44, 0.1)
+        //        ,
+        //        lable: Math.random().toString(36).substr(8),
+        //        tooltip:'name:Tom;age:18;height:123'
+        //    }
+        //})
+        let scatter = [{ "id": "scatter0", "y": 184, "x": 68, "color": "#67C23A", "shape": "square", "size": 43, "lable": "fct12", "tooltip": "name:Tom;age:18;height:123" }, { "id": "scatter1", "y": 164, "x": 60, "color": "#67C23A", "shape": "square", "size": 30, "lable": "473v", "tooltip": "name:Tom;age:18;height:123" }, { "id": "scatter2", "y": 183, "x": 77, "color": "#409EFF", "shape": "square", "size": 40, "lable": "db9bk", "tooltip": "name:Tom;age:18;height:123" }, { "id": "scatter3", "y": 177, "x": 44, "color": "#409EFF", "shape": "circle", "size": 34, "lable": "rp9o", "tooltip": "name:Tom;age:18;height:123" }, { "id": "scatter4", "y": 145, "x": 50, "color": "#E6A23C", "shape": "triangle", "size": 67, "lable": "v4cuy", "tooltip": "name:Tom;age:18;height:123" }]
+        let timeAxis = Array(100 * 1).fill({}).map((n, i) => {
+            return {
+                id: 'scatter' + i,
+                y: rnd(140 + 2, 190 - 2, 0.1),
+                x:+new Date+ rnd(40 + 2, 90 - 2, 1) * 60 * 60 * 1000,
+                color: ['#409EFF', '#67C23A', '#E6A23C', '#F56C6C'][rnd(0, 4)],
+                shape: ['circle', 'triangle', 'square'][rnd(0, 3)],
+                size: rnd(4, 44, 0.1)
+            }
+        })
+        let legend = [{
+            Shape: 'circle',
+            Name: 'product Output'
+        }, {
+            Shape: 'square',
+                Name: 'Aging WIP'
+            }
+            ,
+            {
+               
+                Name: 'Test',
+                Color: '#409EFF'
+            }, {
+               
+                Name: 'Color',
+                Color: '#67C23A'
+            }
+        ];
+        console.timeEnd(1);
+
+        let chart = {
+            title: {
+                text: '507 人按性别划分的身高和体重分布图'
+            },
+            subtitle: {
+                text: '数据来源: Heinz  203'
+            },
+            xAxis: {
+                title: '体重 (kg)',
+                category: 'Number',
+                gridLineWidth:0.5
+
+
+            },
+            yAxis: {
+                title: '身高 (cm)', gridLineWidth: 0.5
+
+            }, DisplayDataLabel: true, DisplayToolTip: true,
+            legend: legend,
+            data: scatter
+        }
+        let chart1 = {
+            title: {
+                text: '时间分布图（随机）'
+            },
+            subtitle: {
+                text: '数据来源: Heinz  203'
+            },
+            xAxis: {
+                title: '时间',
+                category: 'Date'
+
+
+            },
+            yAxis: {
+                title: '高度（Km）'
+
+            },
+            DisplayDataLabel: true, DisplayToolTip: true,
+            legend: legend,
+            data: timeAxis
+        }
+        var sp = new SCATTER_PLOT('container', chart, function () {
+            console.log(arguments);
+        });
+
+      //  let sp = new SCATTER_PLOT('container', chart1);
+
+
+
+        window.timer = null;
+        function run() {
+            scatter.map((n, i) => {
+                n.y = rnd(140 + 2, 190 - 2, 0.1);
+                n.x = rnd(40 + 2, 90 - 2, 0.1);
+                return n;
+            })
+            /**
+             @argument 1 object
+             @argument 2 interval 20201116 add
+             */
+            sp.update(scatter,2000);
+       timer = setTimeout(function () { run() }, 500)
+
+        }
+    </script>
+
+</body>
+</html>
