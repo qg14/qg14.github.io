@@ -102,8 +102,8 @@ opacity:0.1;
 <body>
 
     
-    <div id="container1"></div>
-    <div id="container2"></div>
+    <div id="container"></div>
+   
     <script src="js/ScatterPlot.js"></script>
     <script>
         function rnd(x = 10, y = 20, split = 0) {
@@ -197,11 +197,11 @@ opacity:0.1;
             legend: legend,
             data: timeAxis
         }
-        var sp = new SCATTER_PLOT('container1', chart, function () {
+        var sp = new SCATTER_PLOT('container', chart, function () {
             console.log(arguments);
         });
 
-      new SCATTER_PLOT('container2', chart1);
+   //   new SCATTER_PLOT('container2', chart1);
 
 
 
