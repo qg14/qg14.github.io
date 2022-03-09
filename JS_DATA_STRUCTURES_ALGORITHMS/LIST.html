@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style type="text/css">
+        .rows {
+            display: grid;
+            grid-template-columns: 50px 350px;
+            grid-template-rows: repeat(20, 30px);
+        }
+        [class*=col] {
+        
+        border:1px solid #555;
+        }
+        .c {
+            width: 400px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        .col11 {
+           flex:auto;
+            height: 30px;          
+            
+            width: 50px;
+        }
+        .col22 {
+            flex: auto;
+            height: 30px;
+            width: 340px;
+        }
+
+
+    
+        .card_wrap {
+           width:50%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+           
+        }
+
+        .c_item {
+            height: 120px;
+            margin: 0 5px 5px 0;
+            width: calc((100% - 10px) / 3);
+            border: 1px solid #555;
+        }
+
+    </style>
+</head>
+<body>
+    -- html
+    <div class="card_wrap">
+        <div class="c_item"></div>
+        <div class="c_item"></div>
+        <div class="c_item"></div>
+        <div class="c_item"></div>
+        <div class="c_item"></div>
+        <div class="c_item"></div>
+        <div class="c_item"></div>
+        <div class="c_item"></div>
+    </div>
+
+    <div style="" class="c">
+        <div class="col11">12</div>
+        <div class="col22">34</div>
+        <div class="col11"></div>
+        <div class="col22"></div>
+
+        <div class="col11"></div>
+        <div class="col22"></div>
+        <div class="col11"></div>
+        <div class="col22"></div>
+
+    </div>
+    <div style="width:400px;">
+        <div class="rows">
+            <div class="col1"></div>
+            <div class="col2"></div>
+
+            <div class="col1"></div>
+            <div class="col2"></div>
+
+            <div class="col1"></div>
+            <div class="col2"></div>
+
+            <div class="col1"></div>
+            <div class="col2"></div>
+
+            <div class="col1"></div>
+            <div class="col2"></div>
+
+            <div class="col1"></div>
+            <div class="col2"></div>
+
+            <div class="col1"></div>
+            <div class="col2"></div>
+
+            <div class="col1"></div>
+            <div class="col2"></div>
+
+            <div class="col1"></div>
+            <div class="col2"></div>
+
+            <div class="col1"></div>
+            <div class="col2"></div>
+        </div>
+
+    </div>
+    <div class="rows">
+        <div class="col1"><img src="./doc/img/legend/sc.png" alt="Alternate Text" /></div>
+        <div class="col2">
+            Sprint completed x
+        </div>
+
+        <div class="col1"><img src="./doc/img/legend/sot.png" alt="Alternate Text" /></div>
+        <div class="col2">
+            Sprint on track x
+        </div>
+
+
+        <div class="col1"><img src="./doc/img/legend/ss.png" alt="Alternate Text" /></div>
+        <div class="col2">
+            Sprint suspended x
+
+        </div>
+
+        <div class="col1"><img src="./doc/img/legend/sl.png" alt="Alternate Text" /></div>
+        <div class="col2">
+            Sprint late x
+
+        </div>
+
+
+        <div class="col1"><img src="./doc/img/legend/sr.png" alt="Alternate Text" /></div>
+        <div class="col2">
+            Sprint reserved x
+
+        </div>
+
+
+        <div class="col1"><img src="#" alt="Alternate Text" /></div>
+        <div class="col2">
+            Sprint backlogs board
+
+        </div>
+
+
+        <div class="col1"><img src="#" alt="Alternate Text" /></div>
+        <div class="col2">
+            <span>
+                Backlog completed
+            </span>
+        </div>
+
+        <div class="col1"><img src="#" alt="Alternate Text" /></div>
+        <div class="col2">
+            <span>
+                Backlog on-tract
+            </span>
+        </div>
+
+        <div class="col1"><img src="#" alt="Alternate Text" /></div>
+        <div class="col2">
+            <span></span>
+        </div>
+
+        <div class="col1"><img src="#" alt="Alternate Text" /></div>
+        <div class="col2">
+            <span>
+                Backlog suspended
+            </span>
+
+        </div>
+
+        <div class="col1"><img src="#" alt="Alternate Text" /></div>
+        <div class="col2">
+            Backlog late
+
+        </div>
+
+        <div class="col1"><img src="#" alt="Alternate Text" /></div>
+        <div class="col2">
+            Risk of complexity diminished
+
+        </div>
+
+
+
+        <div class="col1"><img src="#" alt="Alternate Text" /></div>
+        <div class="col2">
+            Scrum Epics x
+
+        </div>
+
+        <div class="col1"><img src="#" alt="Alternate Text" /></div>
+        <div class="col2">
+            Inverse Scrum
+
+        </div>
+
+        <div class="col1"><img src="#" alt="Alternate Text" /></div>
+        <div class="col2">
+            OKR (Objective of key result)
+
+        </div>
+
+        <div class="col1"><img src="#" alt="Alternate Text" /></div>
+        <div class="col2">
+            KR (key result)
+
+        </div>
+
+        <div class="col1"><img src="#" alt="Alternate Text" /></div>
+        <div class="col2">
+            Product started
+
+        </div>
+
+        <div class="col1"><img src="#" alt="Alternate Text" /></div>
+        <div class="col2">
+            TTM due
+
+        </div>
+
+        <div class="col1"><img src="#" alt="Alternate Text" /></div>
+        <div class="col2">
+            Product done
+
+        </div>
+
+        <div class="col1"><img src="#" alt="Alternate Text" /></div>
+        <div class="col2">
+            Critical milestones
+
+
+        </div>
+
+    </div>
+    <script>
+        function List() {
+            this.listSize = 3;
+            this.pos = 0;
+            this.dataStore = ['q', 'w', 's'];
+            this.clear = clear;
+            this.find = find;
+            this.toString = toString;
+            this.insert = insert;
+            this.append = append;
+            this.remove = remove;
+            this.front = front;
+            this.end = end;
+            this.prev = prev;
+            this.next = next;
+            this.hasNext = hasNext;
+            this.hasPrev = hasPrev;
+            this.length = length;
+            this.currPos = currPos;
+            this.moveTo = moveTo;
+            this.getElement = function () { return this.dataStore[this.pos]; }
+            this.contains = contains;
+
+        }
+
+        function append(element) {
+            this.dataStore[this.listSize++] = element;
+        }
+        function find(element) {
+            for (var i = 0; i < this.dataStore.length; i++) {
+                if (this.dataStore[i] == element) { return i; }
+            }
+            return -1;
+        }
+        function remove(element) {
+            var foundAt = this.find(element);
+            if (foundAt > -1) {
+                this.dataStore.splice(foundAt, 1);
+                --this.listSize;
+                return true;
+            }
+            return false;
+        }
+        function length() {
+            return this.listSize;
+        }
+        function toString() {
+            return this.dataStore;
+        }
+        function insert(element, after) {
+            var insertPos = this.find(after);
+            if (insertPos > -1) {
+                this.dataStore.splice(insertPos + 1, 0, element);
+                ++this.listSize;
+                return true;
+            }
+            return false;
+        }
+        function clear() {
+            delete this.dataStore;
+            this.dataStore.length = 0;
+            this.listSize = this.pos = 0;
+        }
+        function contains(element) {
+            for (var i = 0; i < this.dataStore.length; i++) {
+                if (this.dataStore[i] == element) {
+                    return true;
+                }
+                return false;
+
+            }
+        }
+        function front() { this.pos = 0; }
+        function end() { this.pos = this.listSize - 1 }
+        function prev() { --this.pos; }
+        function next() {
+            if (this.pos < this.listSize) { ++this.pos; }
+        }
+        function currPos() { return this.pos }
+        function moveTo(position) {
+            this.pos = position;
+        }
+        function getElement() { return this.dataStore[this.pos]; }
+        function hasNext() {
+            return this.pos < this.listSize;
+        }
+        function hasPrev() {
+            return this.pos >= 0;
+        }
+
+        //
+        var names = new List();
+        names.toString();
+        for (names.pos; names.hasNext(); names.next()) {
+
+            console.log(names.getElement())
+        }
+    </script>
+</body>
+</html>
