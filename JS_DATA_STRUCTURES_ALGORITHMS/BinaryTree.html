@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+
+    <script>
+
+        function Node(data, left, right) {
+            this.data = data;
+            this.left = left;
+            this.count = 1;
+            this.right = right;
+            this.show = function () {
+                return this.data;
+            }
+        }
+        var i = 0;
+        function BST() {
+            this.root = null;
+            this.jsq = 0;
+            this.arr = [];
+            this.insert = function (data) {
+                var fd = this.find(data);
+                if (fd != null) {
+                    fd.count++;
+                    return;
+
+                }
+                var n = new Node(data, null, null);
+                if (this.root == null) { this.root = n; } else {
+                    var current = this.root;
+                    var parent;
+
+                    while (true) {
+
+                        parent = current;
+                        if (data < current.data) {
+                            current = current.left;
+                            if (current == null) {
+                                parent.left = n;
+                                break;
+                            }
+                        } else {
+                            current = current.right;
+                            if (current == null) {
+                                parent.right = n;
+                                break;
+                            }
+                        }
+
+                    }
+
+                }
+
+
+            }
+            this.inOrder = function (node) {
+                if (!(node == null)) {
+                    this.inOrder(node.left);
+                    console.log(node.show(), 'hi')
+                    this.inOrder(node.right);
+
+                }
+
+            };
+            this.count = function (node, index = 0) {
+                if (index == 0) {
+                    this.jsq = index;
+                    index++;
+                    this.arr = [];
+                }
+                if (node != null) {
+                    ++this.jsq;
+                    this.arr.push([node.data, node.count]);
+                    this.count(node.left, index);
+                    this.count(node.right, index);
+
+                }
+                // var count=0,node=this.root;
+                // while(node!=null){
+                // ++count;
+                // node=node.left;
+
+                // }
+            }
+            this.return_count = function () {
+
+                this.count(this.root);
+                return this.jsq;
+            }
+            this.return_side = function () {
+
+                this.count(this.root);
+                return Math.max(this.jsq - 1, 0);
+            }
+            this.return_frequence = function () {
+
+this.count(this.root);
+return this.arr.sort()
+}
+            this.inOrderleft = function (node) {
+                if (!(node == null)) {
+                    this.inOrderleft(node.left);
+                    console.log(node.show(), node)
+                    //this.inOrder(node.right);
+
+                }
+
+            };
+            this.inOrderright = function (node) {
+                if (!(node == null)) {
+                    //this.inOrderright(node.right);
+                    console.log(node.show(), node)
+                    this.inOrderright(node.right);
+
+                }
+
+            };
+            this.getMin = function () {
+                var current_node = this.root;
+                while (current_node != null) {
+                    current_node = current_node.left;
+
+                }
+                return current_node.data
+
+            };
+            this.getMax = function () {
+                var current_node = this.root;
+                while (current_node != null) {
+                    current_node = current_node.right;
+
+                }
+                return current_node.data
+
+            };
+            this.find = function (data) {
+                var current = this.root;
+                while (current != null) {
+                    if (current.data == data) {
+                        return current;
+
+
+                    } else if (data < current.data) {
+                        current = current.left;
+
+                    } else {
+                        current = current.right;
+
+                    }
+                }
+                return null;
+
+            }
+            this.remove = function (data) {
+                root = this.removeNode(this.root, data);
+            }
+            this.getSamllest = function (node) {
+                while (node.left != null) {
+                    node = node.left;
+                }
+                return node;
+
+            }
+            this.removeNode = function (node, data) {
+                if (node == null) {
+
+                    return null;
+                }
+                if (data == node.data) {
+                    //没有子节点的节点
+                    if (node.left == null && node.right == null) {
+                        return null;
+                    }
+                    //没有左子节点的节点
+                    if (node.left == null) {
+
+                        return node.right;
+                    }
+                    //没有右子节点的节点
+                    if (node.right == null) {
+
+                        return node.left;
+                    }
+                    //right and left
+                    var temp = getSamllest(node.right);
+                    node.data = temp.data;
+                    node.right = this.removeNode(node.right, temp.data);
+                    return node;
+                } else if (data < node.data) {
+                    node.left = this.removeNode(node.left, data);
+                    return node;
+                }
+                else {
+                    node.left = this.removeNode(node.right, data);
+                    return node;
+                }
+
+            }
+            this.update = function (data) {
+                var node = this.find(data);
+                node.count++;
+                return node;
+            }
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
