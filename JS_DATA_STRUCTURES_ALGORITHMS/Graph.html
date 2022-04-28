@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+
+
+
+
+        function Graph(v) {
+            this.vertices = v;
+            this.edges = 0;
+            this.edgeTo = [];
+            this.pathTo = [];
+            this.adj = [];
+            this.marked = Array(v).fill(false);
+            for (var i = 0; i < this.vertices; ++i) {
+                this.adj[i] = [""];
+
+            }
+            this.addEdge = function (v, w) {
+                this.adj[v].push(w);
+                this.adj[w].push(v);
+                this.edges++;
+            }
+
+
+            this.showGraph = function () {
+                for (var i = 0; i < this.vertices; ++i) {
+                    console.log(i + '->');
+                    for (var j = 0; j < this.vertices; ++j) {
+                        if (this.adj[i][j] != undefined) {
+                            console.log(this.adj[i][j])
+                        }
+                    }
+                }
+            }
+            //
+            //
+            //深度搜索
+
+            this.dfs = function (v) {
+                this.marked[v] = true;//当前定点置为已读
+                //console.log('find:' + v);
+
+                this.adj[v].map(w => {//寻找当前定点的相邻表
+                    //依次遍历相邻表的元素
+                    //如果未读，递归执行dfs
+
+                    if (!this.marked[w] && w != "") { this.dfs(w) }
+                })
+
+
+            }
+            //////广度搜索
+            this.bfs = function (s) {
+                //从第一个定点开始，尝试访问尽可能靠近他的顶点
+                var queue = []; this.marked = Array(this.vertices).fill(false); this.edgeTo = [];
+                this.marked[s] = true;
+                queue.push(s);
+                while (queue.length > 0) {
+
+                    var v = queue.shift();
+                    if (this.adj[v] != undefined) {
+                       // console.log('x:' + v);//查找相邻顶点
+                    }
+                    typeof this.adj[v] == "object" && this.adj[v].map(w => {
+                        if (!this.marked[w]) {
+                            this.marked[w] = true; queue.push(w);
+                            this.edgeTo[w] = v;//从临接列表中我们正在搜索的那个顶点添加一条边到这个顶点
+                            return w;
+                        }
+                    })
+
+
+                }
+            }
+            this.pathTo = function (v, s = 0) {
+                //函数创建了一个栈用来存储与指定顶点有共同边的所有顶点
+                var source = s;
+                if (!this.marked[v]) { return undefined; }
+                var path = [];
+                for (var i = v; i != source; i = this.edgeTo[i]) {
+                    path.push(i)
+                }
+                path.push(source); return path;
+
+            }
+
+            //拓扑结构
+            this.topSort = function () {
+                var stack = [], visited = [];
+                for (var i = 0; i < this.vertices; i++) {
+                    visited[i] = false; this.topSortHelper(i, visited, stack);
+                }
+                //for (var i = 0; i < this.vertices; i++) {
+                //    visited[i] == false && 
+                //}
+                for (var i = 0; i < stack.length; i++) {
+                    stack[i] != undefined && stack[i] !== false && console.log(stack[i])
+                }
+
+            }
+            this.topSortHelper = function (v, visited, stack) {
+                visited[v] = true;
+                typeof this.adj[v] == "object" &&this.adj[v].map(w => {
+                    !visited[w] && this.topSortHelper(visited[w], visited, stack);
+                return w;
+                })
+                stack.push(v);
+            }
+
+        }
+        var g = new Graph(10);
+        g.addEdge(0, 1);
+        g.addEdge(0, 2);
+        g.addEdge(0, 1);
+        g.addEdge(1, 3);
+        g.addEdge(1, 4);
+        g.addEdge(4, 1);
+
+        let leng = 1000000, vs = 1000;
+        //test fast with dfs and bfs
+        let arr = Array(vs).fill([0, 1]).map((n, i) => {
+            return [n[0] + i, n[1] + i]
+        }).concat(
+            Array(leng-vs).fill([0, 0]).map(n => {
+                return [Math.random() * vs | 0, Math.random() * vs | 0]
+            })
+        )
+
+        var gs = new Graph(leng);
+        arr.map(n => { gs.addEdge(...n) });
+        console.time(0);
+        gs.dfs(0);
+        console.timeEnd(0);
+        console.time(1);
+        gs.bfs(0);
+        console.timeEnd(1);
+    </script>
+</body>
+</html>
